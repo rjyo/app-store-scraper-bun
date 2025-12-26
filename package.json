@@ -1,7 +1,7 @@
 {
-  "name": "app-store-scraper-ts",
+  "name": "app-store-scraper-bun",
   "version": "1.0.0",
-  "description": "Scrape data from the iTunes App Store - TypeScript version",
+  "description": "Modern TypeScript library for scraping Apple App Store data. Fully typed, minimal dependencies, optimized for Bun.",
   "module": "dist/index.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,14 +23,25 @@
     "build:types": "tsc -p tsconfig.build.json"
   },
   "keywords": [
-    "app",
-    "store",
+    "app-store",
+    "apple",
     "itunes",
     "scraper",
-    "typescript"
+    "typescript",
+    "bun",
+    "ios",
+    "app-store-scraper"
   ],
-  "author": "",
+  "author": "rjyo",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rjyo/app-store-scraper-bun.git"
+  },
+  "homepage": "https://github.com/rjyo/app-store-scraper-bun#readme",
+  "bugs": {
+    "url": "https://github.com/rjyo/app-store-scraper-bun/issues"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },

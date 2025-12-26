@@ -1,4 +1,4 @@
-# app-store-scraper-ts
+# app-store-scraper-bun
 
 A modern, fully-typed TypeScript library for scraping public data from the Apple App Store.
 
@@ -32,13 +32,15 @@ This is a complete TypeScript rewrite of the original [app-store-scraper](https:
 ## Installation
 
 ```bash
-bun install app-store-scraper-ts
+bun add app-store-scraper-bun
+# or
+npm install app-store-scraper-bun
 ```
 
 ## Quick Start
 
 ```typescript
-import { app, search, list, collection, category } from 'app-store-scraper-ts';
+import { app, search, list, collection, category } from 'app-store-scraper-bun';
 
 // Fetch app by ID
 const candyCrush = await app({ id: '553834731' });
@@ -87,7 +89,7 @@ const topGames = await list({
 ### Memoization (Caching)
 
 ```typescript
-import { memoized } from 'app-store-scraper-ts';
+import { memoized } from 'app-store-scraper-bun';
 
 // Create memoized instance with 5-minute cache
 const store = memoized({ maxAge: 1000 * 60 * 5 });
@@ -100,7 +102,7 @@ const app2 = await store.app({ id: '553834731' }); // Uses cache
 ### Rate Limiting
 
 ```typescript
-import { search } from 'app-store-scraper-ts';
+import { search } from 'app-store-scraper-bun';
 
 // Limit to 2 requests per second
 const results = await search({
@@ -112,7 +114,7 @@ const results = await search({
 ### Fetching with Ratings
 
 ```typescript
-import { app } from 'app-store-scraper-ts';
+import { app } from 'app-store-scraper-bun';
 
 // Include ratings histogram
 const result = await app({ id: '553834731', ratings: true });
