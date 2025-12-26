@@ -1,6 +1,6 @@
 {
   "name": "app-store-scraper-bun",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Modern TypeScript library for scraping Apple App Store data. Fully typed, minimal dependencies, optimized for Bun.",
   "module": "dist/index.js",
   "main": "dist/index.js",
