@@ -1,0 +1,30 @@
+{
+  "name": "app-store-scraper-ts",
+  "version": "1.0.0",
+  "description": "Scrape data from the iTunes App Store - TypeScript version",
+  "module": "src/index.ts",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "app",
+    "store",
+    "itunes",
+    "scraper",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}
