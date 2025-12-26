@@ -130,28 +130,24 @@ export interface Review {
 // ============================================================================
 
 export interface PrivacyDetails {
-  managePrivacyChoicesUrl: string | null;
   privacyTypes: PrivacyType[];
 }
 
 export interface PrivacyType {
   privacyType: string;
-  identifier: string;
   description: string;
-  dataCategories: PrivacyDataCategory[];
+  dataCategories: string[];
   purposes: PrivacyPurpose[];
-}
-
-export interface PrivacyDataCategory {
-  dataCategory: string;
-  identifier: string;
-  dataTypes: string[];
 }
 
 export interface PrivacyPurpose {
   purpose: string;
-  identifier: string;
   dataCategories: PrivacyDataCategory[];
+}
+
+export interface PrivacyDataCategory {
+  dataCategory: string;
+  dataTypes: string[];
 }
 
 // ============================================================================

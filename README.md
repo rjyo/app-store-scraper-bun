@@ -2,8 +2,8 @@
 
 A modern, fully-typed TypeScript library for scraping public data from the Apple App Store.
 
-[![Tests](https://img.shields.io/badge/tests-46%20passed-brightgreen)](#test-coverage)
-[![Coverage](https://img.shields.io/badge/coverage-87%25-green)](#test-coverage)
+[![Tests](https://img.shields.io/badge/tests-49%20passed-brightgreen)](#test-coverage)
+[![Coverage](https://img.shields.io/badge/coverage-95%25-green)](#test-coverage)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-1.0+-black)](https://bun.sh/)
 
@@ -165,9 +165,9 @@ bun test --coverage
 | Metric | Coverage |
 |--------|----------|
 | **Functions** | 97.07% |
-| **Lines** | 87.19% |
-| **Tests** | 46 passed |
-| **Assertions** | 1,639 |
+| **Lines** | 95.06% |
+| **Tests** | 49 passed |
+| **Assertions** | 1,661 |
 
 ### Per-File Coverage
 
@@ -179,11 +179,13 @@ bun test --coverage
 | src/developer.ts | 100% | 100% |
 | src/index.ts | 100% | 95% |
 | src/list.ts | 100% | 97% |
+| src/privacy.ts | 100% | 99% |
 | src/ratings.ts | 100% | 97% |
 | src/reviews.ts | 100% | 93% |
 | src/search.ts | 100% | 100% |
 | src/similar.ts | 100% | 93% |
 | src/suggest.ts | 67% | 84% |
+| src/version-history.ts | 100% | 97% |
 
 ## Running Tests
 
@@ -200,7 +202,7 @@ bun test --coverage
 
 ## Known Limitations
 
-1. **Privacy & Version History**: These endpoints require extracting authentication tokens from Apple's web pages. Apple has moved to a dynamic Svelte SPA, which means these functions currently fail with "Could not find authentication token". The token extraction would need to be updated to match Apple's new page structure
+1. **Privacy & Version History**: These endpoints parse data directly from App Store HTML pages. If Apple significantly changes their page structure, these functions may need updates
 2. **Rate Limits**: Apple may rate-limit or block requests if too many are made in a short period
 3. **Data Accuracy**: Data comes from public App Store pages and APIs; some information may be region-specific
 

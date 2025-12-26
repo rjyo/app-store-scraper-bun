@@ -1,58 +1,55 @@
 /**
- * Fetch app version history
+ * Fetch app version history by parsing the App Store page HTML
  */
 
+import * as cheerio from 'cheerio';
 import { request } from './common';
 import type { VersionHistoryEntry, VersionHistoryOptions } from './types';
-
-interface VersionHistoryAPIResponse {
-  data: Array<{
-    attributes: {
-      platformAttributes: {
-        ios: {
-          versionHistory: VersionHistoryEntry[];
-        };
-      };
-    };
-  }>;
-}
 
 export async function versionHistory(opts: VersionHistoryOptions): Promise<VersionHistoryEntry[]> {
   if (!opts.id) {
     throw new Error('id is required');
   }
 
-  const country = opts.country || 'US';
+  const country = opts.country || 'us';
 
-  // First fetch the app page to get the auth token
-  const tokenUrl = `https://apps.apple.com/${country}/app/id${opts.id}`;
-  const html = await request(tokenUrl, {}, opts.requestOptions);
-
-  const regExp = /token%22%3A%22([^%]+)%22%7D/g;
-  const match = regExp.exec(html);
-
-  if (!match || !match[1]) {
-    throw new Error('Could not find authentication token');
-  }
-
-  const token = match[1];
-
-  // Then fetch the version history
-  const url = `https://amp-api-edge.apps.apple.com/v1/catalog/${country}/apps/${opts.id}?platform=web&extend=versionHistory&additionalPlatforms=appletv,ipad,iphone,mac,realityDevice`;
-
-  const json = await request(
+  // Fetch the app page HTML
+  const url = `https://apps.apple.com/${country}/app/id${opts.id}`;
+  const html = await request(
     url,
     {
-      Origin: 'https://apps.apple.com',
-      Authorization: `Bearer ${token}`,
+      'User-Agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko)',
     },
     opts.requestOptions
   );
 
-  if (json.length === 0) {
+  if (!html || html.length === 0) {
     throw new Error('App not found (404)');
   }
 
-  const response = JSON.parse(json) as VersionHistoryAPIResponse;
-  return response.data[0]!.attributes.platformAttributes.ios.versionHistory;
+  const $ = cheerio.load(html);
+  const entries: VersionHistoryEntry[] = [];
+
+  // Find all version history articles
+  // Structure: <article class="svelte-* detail"><div class="container"><p>notes</p><div class="metadata"><h4>version</h4><time datetime="date">date</time></div></div></article>
+  $('article.detail').each((_, article) => {
+    const $article = $(article);
+    const $container = $article.find('.container');
+
+    const releaseNotes = $container.find('p').first().text().trim();
+    const versionDisplay = $container.find('.metadata h4').text().trim();
+    const $time = $container.find('.metadata time');
+    const releaseDate = $time.attr('datetime') || '';
+
+    if (versionDisplay) {
+      entries.push({
+        versionDisplay,
+        releaseDate,
+        releaseNotes: releaseNotes || undefined,
+      });
+    }
+  });
+
+  return entries;
 }

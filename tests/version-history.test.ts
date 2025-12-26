@@ -6,23 +6,31 @@ import { test, expect, describe } from 'bun:test';
 import { versionHistory } from '../src/index.ts';
 
 describe('Version History method', () => {
-  test('should fetch version history for an app (or fail gracefully)', async () => {
-    try {
-      const result = await versionHistory({ id: '553834731' });
+  test('should fetch version history for an app', async () => {
+    const result = await versionHistory({ id: '553834731' });
 
-      expect(Array.isArray(result)).toBe(true);
+    expect(Array.isArray(result)).toBe(true);
+    expect(result.length).toBeGreaterThan(0);
 
-      if (result.length > 0) {
-        const version = result[0]!;
-        expect(typeof version.versionDisplay).toBe('string');
-        expect(typeof version.releaseDate).toBe('string');
-        // releaseNotes is optional
-      }
-    } catch (error) {
-      // This test may fail if Apple's page structure changes or blocks the request
-      // The error should be about authentication token not being found
-      expect((error as Error).message).toContain('Could not find authentication token');
+    const version = result[0]!;
+    expect(typeof version.versionDisplay).toBe('string');
+    expect(version.versionDisplay).toMatch(/^\d+\.\d+/);
+    expect(typeof version.releaseDate).toBe('string');
+    expect(version.releaseDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+
+    if (version.releaseNotes) {
+      expect(typeof version.releaseNotes).toBe('string');
     }
+  }, 30000);
+
+  test('should fetch version history for different country', async () => {
+    const result = await versionHistory({ id: '1476359069', country: 'jp' });
+
+    expect(Array.isArray(result)).toBe(true);
+    expect(result.length).toBeGreaterThan(0);
+
+    const version = result[0]!;
+    expect(typeof version.versionDisplay).toBe('string');
   }, 30000);
 
   test('should throw error when id is not provided', async () => {
