@@ -128,6 +128,10 @@ describe('App method', () => {
 
     expect(result.appId).toBe('com.midasplayer.apps.candycrushsaga');
     expect(result.title).toBe('Candy Crush Saga');
+
+    // Second call should use cache (testing cache hit path)
+    const cachedResult = await memoizedStore.app({ id: '553834731' });
+    expect(cachedResult.appId).toBe('com.midasplayer.apps.candycrushsaga');
   }, 15000);
 
   test('should memoize the results with custom options', async () => {

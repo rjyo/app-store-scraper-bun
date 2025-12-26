@@ -87,4 +87,15 @@ describe('Search method', () => {
     // @ts-expect-error Testing invalid input
     await expect(search({})).rejects.toThrow('term is required');
   });
+
+  test('should work with throttle option', async () => {
+    const apps = await search({ term: 'game', num: 2, throttle: 10 });
+
+    expect(apps.length).toBe(2);
+    (apps as Awaited<ReturnType<typeof search>>).forEach((app) => {
+      if (typeof app !== 'string') {
+        assertValidApp(app);
+      }
+    });
+  }, 15000);
 });

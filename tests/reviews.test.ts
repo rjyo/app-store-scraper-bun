@@ -63,4 +63,16 @@ describe('Reviews method', () => {
   test('should throw error when neither id nor appId provided', async () => {
     await expect(reviews({} as { id?: string })).rejects.toThrow('Either id or appId is required');
   });
+
+  test('should fetch reviews using appId instead of id', async () => {
+    const result = await reviews({ appId: 'com.midasplayer.apps.candycrushsaga' });
+
+    expect(Array.isArray(result)).toBe(true);
+
+    if (result.length > 0) {
+      const review = result[0]!;
+      expect(typeof review.id).toBe('string');
+      expect(typeof review.userName).toBe('string');
+    }
+  }, 15000);
 });

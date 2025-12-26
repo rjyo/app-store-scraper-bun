@@ -2,8 +2,8 @@
 
 A modern, fully-typed TypeScript library for scraping public data from the Apple App Store.
 
-[![Tests](https://img.shields.io/badge/tests-44%20passed-brightgreen)](#test-coverage)
-[![Coverage](https://img.shields.io/badge/coverage-85%25-green)](#test-coverage)
+[![Tests](https://img.shields.io/badge/tests-46%20passed-brightgreen)](#test-coverage)
+[![Coverage](https://img.shields.io/badge/coverage-87%25-green)](#test-coverage)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-1.0+-black)](https://bun.sh/)
 
@@ -164,25 +164,26 @@ bun test --coverage
 
 | Metric | Coverage |
 |--------|----------|
-| **Functions** | 95.02% |
-| **Lines** | 84.98% |
-| **Tests** | 44 passed |
-| **Assertions** | 1,616 |
+| **Functions** | 97.07% |
+| **Lines** | 87.19% |
+| **Tests** | 46 passed |
+| **Assertions** | 1,639 |
 
 ### Per-File Coverage
 
 | File | Functions | Lines |
 |------|-----------|-------|
 | src/app.ts | 100% | 100% |
-| src/search.ts | 100% | 100% |
+| src/common.ts | 92% | 100% |
 | src/constants.ts | 100% | 100% |
 | src/developer.ts | 100% | 100% |
+| src/index.ts | 100% | 95% |
 | src/list.ts | 100% | 97% |
 | src/ratings.ts | 100% | 97% |
+| src/reviews.ts | 100% | 93% |
+| src/search.ts | 100% | 100% |
 | src/similar.ts | 100% | 93% |
-| src/reviews.ts | 100% | 87% |
 | src/suggest.ts | 67% | 84% |
-| src/common.ts | 64% | 76% |
 
 ## Running Tests
 
