@@ -2,8 +2,8 @@
  * Fetch app version history
  */
 
-import { request } from './common.ts';
-import type { VersionHistoryEntry, VersionHistoryOptions } from './types.ts';
+import { request } from './common';
+import type { VersionHistoryEntry, VersionHistoryOptions } from './types';
 
 interface VersionHistoryAPIResponse {
   data: Array<{

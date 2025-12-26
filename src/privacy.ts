@@ -2,8 +2,8 @@
  * Fetch app privacy details
  */
 
-import { request } from './common.ts';
-import type { PrivacyDetails, PrivacyOptions } from './types.ts';
+import { request } from './common';
+import type { PrivacyDetails, PrivacyOptions } from './types';
 
 interface PrivacyAPIResponse {
   data: Array<{

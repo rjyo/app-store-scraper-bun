@@ -2,12 +2,25 @@
   "name": "app-store-scraper-ts",
   "version": "1.0.0",
   "description": "Scrape data from the iTunes App Store - TypeScript version",
-  "module": "src/index.ts",
-  "main": "src/index.ts",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "bun run build:js && bun run build:types",
+    "build:js": "bun build src/index.ts --outdir dist --target node --format esm",
+    "build:types": "tsc -p tsconfig.build.json"
   },
   "keywords": [
     "app",

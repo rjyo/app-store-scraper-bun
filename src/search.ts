@@ -2,8 +2,8 @@
  * Search for apps in the App Store
  */
 
-import { request, lookup, storeId } from './common.ts';
-import type { App, SearchOptions, SearchResponse } from './types.ts';
+import { request, lookup, storeId } from './common';
+import type { App, SearchOptions, SearchResponse } from './types';
 
 const BASE_URL =
   'https://search.itunes.apple.com/WebObjects/MZStore.woa/wa/search?clientApplication=Software&media=software&term=';

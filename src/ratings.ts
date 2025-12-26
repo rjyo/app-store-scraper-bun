@@ -3,8 +3,8 @@
  */
 
 import * as cheerio from 'cheerio';
-import { request, storeId } from './common.ts';
-import type { RatingsOptions, RatingsResult, RatingsHistogram } from './types.ts';
+import { request, storeId } from './common';
+import type { RatingsOptions, RatingsResult, RatingsHistogram } from './types';
 
 function parseRatings(html: string): RatingsResult {
   const $ = cheerio.load(html);

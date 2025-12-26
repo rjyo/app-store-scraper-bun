@@ -2,8 +2,8 @@
  * Fetch apps by developer ID
  */
 
-import { lookup } from './common.ts';
-import type { App, DeveloperOptions } from './types.ts';
+import { lookup } from './common';
+import type { App, DeveloperOptions } from './types';
 
 export async function developer(opts: DeveloperOptions): Promise<App[]> {
   if (!opts.devId) {

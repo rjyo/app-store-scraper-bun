@@ -2,8 +2,8 @@
  * Get search suggestions for a term
  */
 
-import { request, storeId } from './common.ts';
-import type { Suggestion, SuggestOptions, SuggestXMLResponse } from './types.ts';
+import { request, storeId } from './common';
+import type { Suggestion, SuggestOptions, SuggestXMLResponse } from './types';
 
 const BASE_URL =
   'https://search.itunes.apple.com/WebObjects/MZSearchHints.woa/wa/hints?clientApplication=Software&term=';

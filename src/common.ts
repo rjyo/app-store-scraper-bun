@@ -2,8 +2,8 @@
  * Common utilities for App Store Scraper
  */
 
-import { markets, DEFAULT_STORE_ID } from './constants.ts';
-import type { App, ITunesApp, ITunesLookupResponse, RequestOptions } from './types.ts';
+import { markets, DEFAULT_STORE_ID } from './constants';
+import type { App, ITunesApp, ITunesLookupResponse, RequestOptions } from './types';
 
 const LOOKUP_URL = 'https://itunes.apple.com/lookup';
 

@@ -2,9 +2,9 @@
  * Fetch similar apps to a given app
  */
 
-import { app as fetchApp } from './app.ts';
-import { request, lookup, storeId } from './common.ts';
-import type { App, SimilarOptions } from './types.ts';
+import { app as fetchApp } from './app';
+import { request, lookup, storeId } from './common';
+import type { App, SimilarOptions } from './types';
 
 const BASE_URL = 'https://itunes.apple.com/us/app/app/id';
 

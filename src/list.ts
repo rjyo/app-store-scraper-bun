@@ -2,9 +2,9 @@
  * Fetch app lists (top apps, new apps, etc.)
  */
 
-import { request, lookup, storeId } from './common.ts';
-import { collection as collectionConst, category as categoryConst } from './constants.ts';
-import type { App, ListApp, ListOptions, RSSFeedEntry, RSSFeedResponse } from './types.ts';
+import { request, lookup, storeId } from './common';
+import { collection as collectionConst, category as categoryConst } from './constants';
+import type { App, ListApp, ListOptions, RSSFeedEntry, RSSFeedResponse } from './types';
 
 function parseLink(app: RSSFeedEntry): string | undefined {
   if (app.link) {

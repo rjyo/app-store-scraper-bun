@@ -5,19 +5,19 @@
  */
 
 // Re-export all methods
-export { app } from './app.ts';
-export { list } from './list.ts';
-export { search } from './search.ts';
-export { developer } from './developer.ts';
-export { privacy } from './privacy.ts';
-export { suggest } from './suggest.ts';
-export { similar } from './similar.ts';
-export { reviews } from './reviews.ts';
-export { ratings } from './ratings.ts';
-export { versionHistory } from './version-history.ts';
+export { app } from './app';
+export { list } from './list';
+export { search } from './search';
+export { developer } from './developer';
+export { privacy } from './privacy';
+export { suggest } from './suggest';
+export { similar } from './similar';
+export { reviews } from './reviews';
+export { ratings } from './ratings';
+export { versionHistory } from './version-history';
 
 // Re-export constants
-export { collection, category, device, sort, markets } from './constants.ts';
+export { collection, category, device, sort, markets } from './constants';
 
 // Re-export types
 export type {
@@ -47,21 +47,21 @@ export type {
   VersionHistoryOptions,
   RequestOptions,
   MemoizedOptions,
-} from './types.ts';
+} from './types';
 
 // Import methods for memoization
-import { app } from './app.ts';
-import { list } from './list.ts';
-import { search } from './search.ts';
-import { developer } from './developer.ts';
-import { privacy } from './privacy.ts';
-import { suggest } from './suggest.ts';
-import { similar } from './similar.ts';
-import { reviews } from './reviews.ts';
-import { ratings } from './ratings.ts';
-import { versionHistory } from './version-history.ts';
-import { collection, category, device, sort, markets } from './constants.ts';
-import type { MemoizedOptions } from './types.ts';
+import { app } from './app';
+import { list } from './list';
+import { search } from './search';
+import { developer } from './developer';
+import { privacy } from './privacy';
+import { suggest } from './suggest';
+import { similar } from './similar';
+import { reviews } from './reviews';
+import { ratings } from './ratings';
+import { versionHistory } from './version-history';
+import { collection, category, device, sort, markets } from './constants';
+import type { MemoizedOptions } from './types';
 
 /**
  * Simple memoization implementation

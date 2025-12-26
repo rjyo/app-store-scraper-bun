@@ -2,9 +2,9 @@
  * Fetch app details by ID or bundle ID
  */
 
-import { lookup } from './common.ts';
-import { ratings } from './ratings.ts';
-import type { App, AppOptions, AppWithRatings } from './types.ts';
+import { lookup } from './common';
+import { ratings } from './ratings';
+import type { App, AppOptions, AppWithRatings } from './types';
 
 export async function app(opts: AppOptions): Promise<App | AppWithRatings> {
   if (!opts.id && !opts.appId) {

@@ -29,7 +29,6 @@ describe('Similar method', () => {
   }, 30000);
 
   test('should throw error when neither id nor appId provided', async () => {
-    // @ts-expect-error Testing invalid input
     await expect(similar({})).rejects.toThrow('Either id or appId is required');
   });
 });

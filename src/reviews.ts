@@ -2,10 +2,10 @@
  * Fetch app reviews
  */
 
-import { app as fetchApp } from './app.ts';
-import { request } from './common.ts';
-import { sort as sortConst } from './constants.ts';
-import type { Review, ReviewsOptions, ReviewsFeedResponse, ReviewFeedEntry } from './types.ts';
+import { app as fetchApp } from './app';
+import { request } from './common';
+import { sort as sortConst } from './constants';
+import type { Review, ReviewsOptions, ReviewsFeedResponse, ReviewFeedEntry } from './types';
 
 function ensureArray<T>(value: T | T[] | undefined): T[] {
   if (!value) {
