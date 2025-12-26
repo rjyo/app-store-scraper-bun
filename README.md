@@ -15,7 +15,8 @@ This is a complete TypeScript rewrite of the original [app-store-scraper](https:
 |--------|------------------|--------------|
 | **Language** | JavaScript | TypeScript with full type definitions |
 | **HTTP Client** | `request` (deprecated) | Native `fetch` API |
-| **XML Parsing** | `xml2js` (heavy) | Lightweight custom parser |
+| **XML Parsing** | `xml2js` (heavy) | Lightweight custom plist parser |
+| **HTML Parsing** | `cheerio` | `cheerio` (minimal usage) |
 | **Runtime** | Node.js | Bun (also works with Node.js) |
 | **Type Safety** | None | Comprehensive types for all APIs |
 | **Dependencies** | Multiple legacy packages | Minimal modern dependencies |
@@ -203,7 +204,6 @@ bun test --coverage
 ## Dependencies
 
 - **cheerio**: HTML parsing for ratings extraction
-- **bun-types**: TypeScript definitions for Bun runtime
 
 ## License
 
