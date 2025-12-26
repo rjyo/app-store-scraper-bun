@@ -200,7 +200,7 @@ bun test --coverage
 
 ## Known Limitations
 
-1. **Privacy & Version History**: These endpoints require extracting authentication tokens from Apple's web pages, which may break if Apple changes their page structure
+1. **Privacy & Version History**: These endpoints require extracting authentication tokens from Apple's web pages. Apple has moved to a dynamic Svelte SPA, which means these functions currently fail with "Could not find authentication token". The token extraction would need to be updated to match Apple's new page structure
 2. **Rate Limits**: Apple may rate-limit or block requests if too many are made in a short period
 3. **Data Accuracy**: Data comes from public App Store pages and APIs; some information may be region-specific
 
