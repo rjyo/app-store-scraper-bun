@@ -15,6 +15,7 @@ export { similar } from './similar';
 export { reviews } from './reviews';
 export { ratings } from './ratings';
 export { versionHistory } from './version-history';
+export { iap } from './iap';
 
 // Re-export constants
 export { collection, category, device, sort, markets } from './constants';
@@ -45,6 +46,8 @@ export type {
   ReviewsOptions,
   RatingsOptions,
   VersionHistoryOptions,
+  IAPOptions,
+  InAppPurchase,
   RequestOptions,
   MemoizedOptions,
 } from './types';
@@ -60,6 +63,7 @@ import { similar } from './similar';
 import { reviews } from './reviews';
 import { ratings } from './ratings';
 import { versionHistory } from './version-history';
+import { iap } from './iap';
 import { collection, category, device, sort, markets } from './constants';
 import type { MemoizedOptions } from './types';
 
@@ -130,6 +134,7 @@ export function memoized(opts: MemoizedOptions = {}) {
     reviews: memoize(reviews, cacheOpts),
     ratings: memoize(ratings, cacheOpts),
     versionHistory: memoize(versionHistory, cacheOpts),
+    iap: memoize(iap, cacheOpts),
   };
 }
 
@@ -145,6 +150,7 @@ export default {
   reviews,
   ratings,
   versionHistory,
+  iap,
   collection,
   category,
   device,

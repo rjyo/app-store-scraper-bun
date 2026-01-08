@@ -2,7 +2,7 @@
 
 A modern, fully-typed TypeScript library for scraping public data from the Apple App Store.
 
-[![Tests](https://img.shields.io/badge/tests-49%20passed-brightgreen)](#test-coverage)
+[![Tests](https://img.shields.io/badge/tests-55%20passed-brightgreen)](#test-coverage)
 [![Coverage](https://img.shields.io/badge/coverage-95%25-green)](#test-coverage)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-1.0+-black)](https://bun.sh/)
@@ -76,6 +76,7 @@ const topGames = await list({
 | `suggest(options)` | Get search suggestions for a term |
 | `privacy(options)` | Fetch app privacy details (App Privacy labels) |
 | `versionHistory(options)` | Fetch version history for an app |
+| `iap(options)` | Fetch in-app purchases for an app |
 
 ### Constants
 
@@ -135,6 +136,7 @@ All methods are fully typed. Key types include:
 | `Suggestion` | Search suggestion |
 | `VersionHistoryEntry` | Version history entry |
 | `PrivacyDetails` | App privacy information |
+| `InAppPurchase` | In-app purchase name and price |
 
 ## Project Structure
 
@@ -153,7 +155,8 @@ src/
 ├── ratings.ts         # Ratings method
 ├── suggest.ts         # Search suggestions method
 ├── privacy.ts         # Privacy details method
-└── version-history.ts # Version history method
+├── version-history.ts # Version history method
+└── iap.ts             # In-app purchases method
 ```
 
 ## Test Coverage
@@ -164,10 +167,10 @@ bun test --coverage
 
 | Metric | Coverage |
 |--------|----------|
-| **Functions** | 97.07% |
-| **Lines** | 95.06% |
-| **Tests** | 49 passed |
-| **Assertions** | 1,661 |
+| **Functions** | 97.26% |
+| **Lines** | 94.68% |
+| **Tests** | 55 passed |
+| **Assertions** | 1,690 |
 
 ### Per-File Coverage
 
@@ -186,6 +189,7 @@ bun test --coverage
 | src/similar.ts | 100% | 93% |
 | src/suggest.ts | 67% | 84% |
 | src/version-history.ts | 100% | 97% |
+| src/iap.ts | 100% | 89% |
 
 ## Running Tests
 

@@ -151,6 +151,15 @@ export interface PrivacyDataCategory {
 }
 
 // ============================================================================
+// In-App Purchase Types
+// ============================================================================
+
+export interface InAppPurchase {
+  name: string;
+  price: string;
+}
+
+// ============================================================================
 // Version History Types
 // ============================================================================
 
@@ -239,6 +248,11 @@ export interface RatingsOptions extends BaseOptions {
 
 export interface VersionHistoryOptions extends BaseOptions {
   id: number | string;
+}
+
+export interface IAPOptions extends BaseOptions {
+  id?: number | string;
+  appId?: string;
 }
 
 export interface MemoizedOptions {
